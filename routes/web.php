@@ -48,3 +48,32 @@ Route::post('edit/{id}','StudUpdateController@edit');
 
 Route::get('delete-records','StudDeleteController@index');
 Route::get('delete/{id}','StudDeleteController@destroy');
+
+Route::get('/form',function(){
+   return view('form');
+});
+
+Route::get('localization/{locale}','LocalizationController@index');
+
+Route::get('session/get','SessionController@accessSessionData');
+Route::get('session/set','SessionController@storeSessionData');
+Route::get('session/remove','SessionController@deleteSessionData');
+
+Route::get('/validation','ValidationController@showformrr');
+Route::post('/validation','ValidationController@validateform');
+
+Route::get('/uploadfile','UploadFileController@index');
+Route::post('/uploadfile','UploadFileController@showUploadFile');
+
+Route::get('sendbasicemail','MailController@basic_email');
+Route::get('sendhtmlemail','MailController@html_email');
+Route::get('sendattachmentemail','MailController@attachment_email');
+
+Route::get('/ajax',function(){
+   return view('message');
+});
+Route::post('/getmsg','AjaxController@index');
+
+Route::get('/error',function(){
+   abort(404);
+});
